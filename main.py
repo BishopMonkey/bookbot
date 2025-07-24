@@ -1,3 +1,9 @@
+import sys
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+imported_book = sys.argv[1]
+
 def get_book_text(book):
     book_contents = book.read()
     from stats import word_count, sort_char_count
@@ -13,8 +19,9 @@ def get_book_text(book):
     return
 
 def main():
-    with open("books/frankenstein.txt") as book:
+    with open(imported_book) as book:
         get_book_text(book)
+        return
     return
 
 main()
